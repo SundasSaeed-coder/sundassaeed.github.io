@@ -32,6 +32,35 @@ function updateThemeIcon() {
     }
 }
 
+// Offcanvas Menu Toggle
+const offcanvasToggle = document.getElementById('offcanvasToggle');
+const offcanvasMenu = document.getElementById('offcanvasMenu');
+const offcanvasOverlay = document.getElementById('offcanvasOverlay');
+const offcanvasClose = document.getElementById('offcanvasClose');
+const offcanvasLinks = document.querySelectorAll('.offcanvas-link');
+
+// Open offcanvas menu
+offcanvasToggle.addEventListener('click', () => {
+    offcanvasMenu.classList.add('show');
+    offcanvasOverlay.classList.add('show');
+    body.classList.add('offcanvas-open');
+});
+
+// Close offcanvas menu
+offcanvasClose.addEventListener('click', closeOffcanvas);
+offcanvasOverlay.addEventListener('click', closeOffcanvas);
+
+function closeOffcanvas() {
+    offcanvasMenu.classList.remove('show');
+    offcanvasOverlay.classList.remove('show');
+    body.classList.remove('offcanvas-open');
+}
+
+// Close offcanvas when clicking on a link
+offcanvasLinks.forEach(link => {
+    link.addEventListener('click', closeOffcanvas);
+});
+
 // Smooth scrolling for nav links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -88,14 +117,6 @@ const observer = new IntersectionObserver(function (entries) {
 document.querySelectorAll('.project-item, .skill-item').forEach(el => {
     el.style.opacity = '0';
     observer.observe(el);
-});
-
-// Mobile menu toggle
-const navMenu = document.querySelector('.nav-menu');
-window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-        navMenu.style.display = 'flex';
-    }
 });
 
 // Preloader simulation
