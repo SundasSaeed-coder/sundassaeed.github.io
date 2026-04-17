@@ -36,10 +36,6 @@ body {
     line-height: 1.6;
 }
 
-body.offcanvas-open {
-    overflow: hidden;
-}
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -110,12 +106,6 @@ body.dark-mode .navbar {
     width: 100%;
 }
 
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
 .theme-toggle {
     background: none;
     border: none;
@@ -127,110 +117,6 @@ body.dark-mode .navbar {
 
 .theme-toggle:hover {
     transform: rotate(20deg);
-}
-
-/* Offcanvas Toggle Button */
-.offcanvas-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--text-dark);
-    transition: color 0.3s;
-}
-
-.offcanvas-toggle:hover {
-    color: var(--primary-color);
-}
-
-/* Offcanvas Overlay */
-.offcanvas-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 998;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-}
-
-.offcanvas-overlay.show {
-    display: block;
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* Offcanvas Menu */
-.offcanvas-menu {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: -300px;
-    width: 300px;
-    height: 100vh;
-    background: var(--text-light);
-    box-shadow: -2px 0 20px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-    transition: right 0.3s ease;
-    overflow-y: auto;
-    padding: 2rem 0;
-}
-
-body.dark-mode .offcanvas-menu {
-    background: var(--bg-dark);
-}
-
-.offcanvas-menu.show {
-    right: 0;
-}
-
-.offcanvas-close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--text-dark);
-    transition: color 0.3s;
-}
-
-.offcanvas-close:hover {
-    color: var(--primary-color);
-}
-
-.offcanvas-nav {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-}
-
-.offcanvas-link {
-    display: block;
-    padding: 1rem 2rem;
-    text-decoration: none;
-    color: var(--text-dark);
-    font-weight: 500;
-    transition: all 0.3s;
-    border-left: 3px solid transparent;
-}
-
-body.dark-mode .offcanvas-link {
-    color: var(--text-light);
-}
-
-.offcanvas-link:hover {
-    background: rgba(102, 126, 234, 0.1);
-    color: var(--primary-color);
-    border-left-color: var(--primary-color);
-    padding-left: 2.5rem;
 }
 
 /* Hero Section */
@@ -582,15 +468,7 @@ body.dark-mode .footer {
 /* Responsive */
 @media (max-width: 768px) {
     .nav-menu {
-        display: none;
-    }
-
-    .offcanvas-toggle {
-        display: block;
-    }
-
-    .offcanvas-menu {
-        display: block;
+        gap: 1rem;
     }
 
     .hero-text h1 {
@@ -613,19 +491,19 @@ body.dark-mode .footer {
     .skills-list {
         grid-template-columns: 1fr;
     }
-}
 
-@media (max-width: 480px) {
-    .hero-text h1 {
-        font-size: 1.5rem;
-    }
+    @media (max-width: 480px) {
+        .nav-menu {
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
 
-    .hero-subtitle {
-        font-size: 1.1rem;
-    }
+        .hero-text h1 {
+            font-size: 1.5rem;
+        }
 
-    .offcanvas-menu {
-        width: 100%;
-        right: -100%;
+        .hero-subtitle {
+            font-size: 1.1rem;
+        }
     }
 }
